@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MentalBrut | Téléchargement</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container { 
+            max-width: 500px; 
+            margin: 30px auto; 
+            padding: 30px 20px; 
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .logo span {
+            color: #e67e22;
+        }
+        h1 { 
+            font-size: 22px; 
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 25px;
+            color: #555;
+        }
+        .btn { 
+            background: #e67e22; 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #d35400;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            display: none;
+        }
+        .insta-link {
+            margin-top: 30px;
+            color: #555;
+            text-decoration: none;
+        }
+        .insta-link:hover {
+            color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">MENTAL<span>BRUT</span></div>
+        
+        <h1>Votre guide MentalBrut est prêt</h1>
+        <p>Merci d'avoir commenté sur Instagram! Voici votre guide exclusif qui vous aidera à faire le premier pas vers une transformation authentique.</p>
+        
+        <p><a href="bonheur.pdf" class="btn" id="downloadLink">Télécharger le guide</a></p>
+        
+        <div class="success" id="successMsg">
+            Téléchargement démarré! Si rien ne se passe, <a href="bonheur.pdf" id="directLink">cliquez ici</a>.
+        </div>
+        
+        <p><a href="https://instagram.com/mentalbrut" class="insta-link">Suivez-moi sur Instagram pour plus de contenu</a></p>
+    </div>
+
+    <script>
+        // Version ultra-simplifiée
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var guide = urlParams.get('guide');
+            
+            // Définir le titre en fonction du guide
+            if (guide === 'bonheur') {
+                document.title = 'MentalBrut | Guide du Bonheur';
+                document.querySelector('h1').textContent = 'Votre guide "Cartographie du Bonheur" est prêt';
+            } 
+            else if (guide === 'energie') {
+                document.title = 'MentalBrut | Guide Énergie';
+                document.querySelector('h1').textContent = 'Votre guide "Protecteur d\'Énergie" est prêt';
+            }
+            else if (guide === 'authenticite') {
+                document.title = 'MentalBrut | Guide Authenticité';
+                document.querySelector('h1').textContent = 'Votre guide "Authenticité" est prêt';
+            }
+            
+            // Mettre à jour les liens de téléchargement
+            if (guide) {
+                document.getElementById('downloadLink').href = guide + '.pdf';
+                document.getElementById('directLink').href = guide + '.pdf';
+            }
+            
+            // Ajouter la gestion du clic sur le bouton
+            document.getElementById('downloadLink').addEventListener('click', function() {
+                setTimeout(function() {
+                    document.getElementById('successMsg').style.display = 'block';
+                }, 500);
+            });
+        };
+    </script>
+</body>
+</html>
